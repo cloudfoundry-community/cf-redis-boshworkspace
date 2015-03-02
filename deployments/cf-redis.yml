@@ -1,0 +1,16 @@
+name: cf-redis
+director_uuid: current
+
+releases:
+  - name: cf-redis
+    version: 313
+    git: https://github.com/pivotal-cf/cf-redis-release
+
+stemcells:
+  - name: bosh-warden-boshlite-ubuntu-lucid-go_agent
+    version: 389
+
+templates:
+  - cf-redis/cf-redis-lite.yml
+
+meta: {}
