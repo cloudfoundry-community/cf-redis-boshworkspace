@@ -1,0 +1,17 @@
+name: cf-redis-aws
+director_uuid: 10f70eab-16bd-4297-acc1-fc66df73df29
+
+releases:
+  - name: cf-redis
+    version: 313
+    git: https://github.com/pivotal-cf/cf-redis-release
+
+stemcells:
+  - name: bosh-aws-xen-ubuntu-trusty-go_agent
+    version: 2865
+
+templates:
+  - cf-redis-template.yml
+  - cf-redis-infrastructure-aws.yml
+
+meta: {}
