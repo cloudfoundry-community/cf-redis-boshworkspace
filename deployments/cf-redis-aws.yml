@@ -1,9 +1,9 @@
 name: cf-redis-aws
-director_uuid: 10f70eab-16bd-4297-acc1-fc66df73df29
+director_uuid: REPLACE_WITH_DIRECTOR_UUID
 
 releases:
   - name: cf-redis
-    version: 313
+    version: 316
     git: https://github.com/pivotal-cf/cf-redis-release
 
 stemcells:
@@ -13,5 +13,18 @@ stemcells:
 templates:
   - cf-redis-template.yml
   - cf-redis-infrastructure-aws.yml
+  - cf-networking.yml
+  - cf-redis-properties.yml
 
-meta: {}
+meta:
+  availability_zone: us-east-1b
+  instance_type: m1.small
+  subnet_ids:
+    rs1: REPLACE_WITH_YOUR_SUBNET_ID
+  ipmask: "10."
+  rs1_quad: "0.0"
+  dns_servers: [ 8.8.8.8 ]
+  security_groups: REPLACE_WITH_YOUR_SECURITY_GROUP
+
+  cf:
+    api_url: REPLACE_WITH_YOUR_CF_URL
